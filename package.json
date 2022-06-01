@@ -1,6 +1,7 @@
 {
-  "name": "pantha",
-  "version": "1.0.0",
-  "private": "true",
-  "scripts": {}
+	"private": "true",
+	"version": "1.0.0",
+	"scripts": {
+		"setup": "rm -rf node_modules && rm -rf ./packages/*/node_modules && pnpm i"
+	}
 }
