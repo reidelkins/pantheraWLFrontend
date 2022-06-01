@@ -30,7 +30,7 @@ const useStyles = createStyles((theme) => ({
 		padding: '8px 12px',
 		borderRadius: theme.radius.sm,
 		textDecoration: 'none',
-		color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+		color: '#b26e2f',
 		fontSize: theme.fontSizes.sm,
 		fontWeight: 500,
 
@@ -49,7 +49,7 @@ export function HeaderMenu() {
 
 	return (
 		<Header height={56} style={{ border: 'none', backgroundColor: '#FFF9F0' }}>
-			<Image src="/Logo.png" alt="Logo" style={{ float: 'left' }} height={70} />
+			<Image src="/hello_pantha_logo.svg" alt="Logo" style={{ float: 'left' }} height={70} />
 			<Container mr={20}>
 				<div className={classes.inner}>
 					<Group spacing={5} className={classes.links}>
