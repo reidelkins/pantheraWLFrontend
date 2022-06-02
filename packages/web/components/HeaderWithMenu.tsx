@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
-import {
-	createStyles,
-	Header,
-	Menu,
-	Group,
-	Center,
-	Container,
-	Image,
-	Burger,
-	Navbar,
-	Paper,
-	Transition,
-} from '@mantine/core';
+import { createStyles, Header, Menu, Group, Center, Container, Image, Burger, Navbar, Paper, Transition } from '@mantine/core';
 import { ChevronDown } from 'tabler-icons-react';
 import Link from 'next/link';
 import { useBooleanToggle } from '@mantine/hooks';
+import { useRouter } from 'next/router';
 
 const useStyles = createStyles((theme) => ({
 	inner: {
@@ -87,8 +76,12 @@ const useStyles = createStyles((theme) => ({
 export function HeaderMenu() {
 	const { classes } = useStyles();
 
+	const router = useRouter();
+
 	const [opened, toggleOpened] = useBooleanToggle(false);
 	const [active, setActive] = useState('/');
+
+	if (router.asPath === '/welcome') return null;
 
 	return (
 		<Header height={56} style={{ border: 'none', backgroundColor: '#FFF9F0' }} fixed>
@@ -215,12 +208,7 @@ export function HeaderMenu() {
 								<Link href={'/'}>
 									<a style={{ color: 'black' }} className={classes.link}>
 										Magic Eden
-										<Image
-											src="magic-eden.svg"
-											alt="magic-eden"
-											width={20}
-											style={{ float: 'right' }}
-										/>
+										<Image src="magic-eden.svg" alt="magic-eden" width={20} style={{ float: 'right' }} />
 									</a>
 								</Link>
 							</Paper>
