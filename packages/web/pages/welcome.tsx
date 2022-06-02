@@ -2,7 +2,7 @@ import { BackgroundImage, Container, createStyles, Image } from '@mantine/core';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 
 const useStyles = createStyles((theme) => ({
@@ -32,6 +32,12 @@ const Welcome: NextPage = () => {
 		localStorage.setItem('visitedPanthera', 'true');
 		router.push('/');
 	};
+
+	const [width, setWidth] = useState(100);
+
+	useEffect(() => {
+		setWidth(screen.width);
+	}, []);
 
 	return (
 		<>
@@ -66,7 +72,7 @@ const Welcome: NextPage = () => {
 				style={{
 					position: 'absolute',
 					height: '115px',
-					width: '153px',
+					width: '152px',
 					top: '160px',
 					left: '138px',
 					backgroundColor: 'green',
@@ -91,7 +97,7 @@ const Welcome: NextPage = () => {
 					// zIndex: '1',
 					backgroundSize: 'cover',
 					height: '100vh',
-					width: screen.width,
+					width: width,
 					top: '0',
 					left: '0',
 					backgroundRepeat: 'no-repeat',
