@@ -1,7 +1,20 @@
-import React from 'react';
-import { createStyles, Header, Menu, Group, Center, Container, Image } from '@mantine/core';
+import React, { useState } from 'react';
+import {
+	createStyles,
+	Header,
+	Menu,
+	Group,
+	Center,
+	Container,
+	Image,
+	Burger,
+	Navbar,
+	Paper,
+	Transition,
+} from '@mantine/core';
 import { ChevronDown } from 'tabler-icons-react';
 import Link from 'next/link';
+import { useBooleanToggle } from '@mantine/hooks';
 
 const useStyles = createStyles((theme) => ({
 	inner: {
@@ -24,6 +37,23 @@ const useStyles = createStyles((theme) => ({
 		},
 	},
 
+	dropdown: {
+		position: 'absolute',
+		top: 56,
+		left: '50%',
+		right: 0,
+		zIndex: 0,
+		borderTopRightRadius: 0,
+		borderTopLeftRadius: 0,
+		borderTopWidth: 0,
+		backgroundColor: 'rgba(0,0,0,0.2)',
+		overflow: 'hidden',
+
+		[theme.fn.largerThan('sm')]: {
+			display: 'none',
+		},
+	},
+
 	link: {
 		display: 'block',
 		lineHeight: 1,
@@ -39,6 +69,16 @@ const useStyles = createStyles((theme) => ({
 		},
 	},
 
+	linkActive: {
+		'&, &:hover': {
+			backgroundColor:
+				theme.colorScheme === 'dark'
+					? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
+					: theme.colors[theme.primaryColor][0],
+			color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
+		},
+	},
+
 	linkLabel: {
 		marginRight: 5,
 	},
@@ -47,8 +87,11 @@ const useStyles = createStyles((theme) => ({
 export function HeaderMenu() {
 	const { classes } = useStyles();
 
+	const [opened, toggleOpened] = useBooleanToggle(false);
+	const [active, setActive] = useState('/');
+
 	return (
-		<Header height={56} style={{ border: 'none', backgroundColor: '#FFF9F0' }}>
+		<Header height={56} style={{ border: 'none', backgroundColor: '#FFF9F0' }} fixed>
 			<Image src="/hello_pantha_logo.svg" alt="Logo" style={{ float: 'left' }} height={70} />
 			<Container mr={20}>
 				<div className={classes.inner}>
@@ -72,6 +115,7 @@ export function HeaderMenu() {
 							placement="end"
 							gutter={1}
 							style={{ backgroundColor: '#FFF9F0' }}
+							// className={classes.links}
 							control={
 								<a className={classes.link}>
 									<Center>
@@ -112,6 +156,76 @@ export function HeaderMenu() {
 							<Image src="/discord.svg" alt="discord" />
 						</Link>
 					</Group>
+					<Burger opened={opened} onClick={() => toggleOpened()} size="sm" className={classes.burger} />
+					<Transition transition="pop-top-right" duration={200} mounted={opened}>
+						{(styles) => (
+							<Paper className={classes.dropdown} withBorder style={styles}>
+								<Link href={'/'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Home
+									</a>
+								</Link>
+								<Link href={'/'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Mint
+									</a>
+								</Link>
+								<Link href={'/roadmap'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Roadmap
+									</a>
+								</Link>
+								<Link href={'/'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Team
+									</a>
+								</Link>
+								<Link href={'/collection'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Collection
+									</a>
+								</Link>
+								<Link href={'/leaderboard'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Leaderboard
+									</a>
+								</Link>
+								<Link href={'/festival'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Panthera Festival
+									</a>
+								</Link>
+								<Link href={'/banerator'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Banerator
+									</a>
+								</Link>
+								<Link href={'/'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Twitter
+										<Image src="twitter.svg" alt="twitter" width={20} style={{ float: 'right' }} />
+									</a>
+								</Link>
+								<Link href={'/'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Discord
+										<Image src="discord.svg" alt="discord" width={20} style={{ float: 'right' }} />
+									</a>
+								</Link>
+								<Link href={'/'}>
+									<a style={{ color: 'black' }} className={classes.link}>
+										Magic Eden
+										<Image
+											src="magic-eden.svg"
+											alt="magic-eden"
+											width={20}
+											style={{ float: 'right' }}
+										/>
+									</a>
+								</Link>
+							</Paper>
+						)}
+					</Transition>
 				</div>
 			</Container>
 		</Header>
