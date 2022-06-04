@@ -1,6 +1,6 @@
 # pantha
 
-Site for Panther NFTs.
+Site for Panthera WL Frontend.
 
 Uses pnpm as package manager.
 
