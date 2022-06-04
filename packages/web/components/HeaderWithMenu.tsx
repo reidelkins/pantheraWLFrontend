@@ -85,7 +85,11 @@ export function HeaderMenu() {
 
 	return (
 		<Header height={56} style={{ border: 'none', backgroundColor: '#FFF9F0' }} fixed>
-			<Image src="/hello_pantha_logo.svg" alt="Logo" style={{ float: 'left' }} height={70} />
+			<Link href={'/welcome'}>
+				<a>
+					<Image src="/hello_pantha_logo.svg" alt="Logo" style={{ float: 'left' }} height={70} />
+				</a>
+			</Link>
 			<Container mr={20}>
 				<div className={classes.inner}>
 					<Group spacing={5} className={classes.links}>

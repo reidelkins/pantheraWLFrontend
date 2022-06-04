@@ -8,9 +8,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
-				<title>Pantha NFTs</title>
+				<title>Panthera</title>
 				<link rel="icon" href="/favicon.ico" />
-				{/* <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Apex" /> */}
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Apex" />
 			</Head>
 			<AppShell header={<HeaderMenu />} style={{ backgroundColor: '#FFF9F0', height: '100vh' }}>
 				<Component {...pageProps} />

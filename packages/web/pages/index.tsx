@@ -2,19 +2,6 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import styles from '../styles/Home.module.css';
-import {
-	createStyles,
-	Header,
-	Menu,
-	Group,
-	Center,
-	Container,
-	Image,
-	Burger,
-	Navbar,
-	Paper,
-	Transition,
-} from '@mantine/core';
 
 const Home: NextPage = () => {
 	const router = useRouter();

@@ -9,12 +9,22 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@chakra-ui/react": "^2.1.2",
 		"@mantine/core": "^4.2.7",
+		"@mantine/form": "^4.2.7",
 		"@mantine/hooks": "^4.2.7",
+		"axios": "^0.27.2",
+		"dayjs": "^1.11.2",
+		"formik": "^2.2.9",
+		"jwt-decode": "^3.1.2",
 		"next": "12.1.6",
 		"react": "18.1.0",
 		"react-dom": "18.1.0",
-		"tabler-icons-react": "^1.48.1"
+		"react-redux": "^8.0.2",
+		"react-router": "^6.3.0",
+		"react-router-dom": "5.2.0",
+		"tabler-icons-react": "^1.48.1",
+		"yup": "^0.32.11"
 	},
 	"devDependencies": {
 		"@types/node": "17.0.38",
