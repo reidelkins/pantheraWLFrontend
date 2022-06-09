@@ -1,5 +1,7 @@
 import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useRouter } from 'next/router';
+import { MouseEventHandler } from 'react';
 
 function LoginForm() {
   const form = useForm({
@@ -14,9 +16,17 @@ function LoginForm() {
     // },
   });
 
+  const router = useRouter();
+
+  const onClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+            e.preventDefault();
+            localStorage.setItem('visitedPanthera', 'true');
+            router.push('/Profile');
+        };
+
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <form onSubmit={form.onSubmit((values) => onClick)}>
         <TextInput
           required
           label="Username"

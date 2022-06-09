@@ -94,56 +94,15 @@ export function HeaderMenu() {
 				<div className={classes.inner}>
 					<Group spacing={5} className={classes.links}>
 						<Link href={'/'}>
-							<a className={classes.link}>Home</a>
+							<a className={classes.link}>WL Marketplace</a>
+						</Link>
+						<Link href={'/Profile'}>
+							<a className={classes.link}>Profile</a>
 						</Link>
 						<Link href={'/'}>
-							<a className={classes.link}>Mint</a>
+							<a className={classes.link}>Sign Out</a>
 						</Link>
-						<Link href={'/'}>
-							<a className={classes.link}>Roadmap</a>
-						</Link>
-						<Link href={'/'}>
-							<a className={classes.link}>Team</a>
-						</Link>
-						<Menu
-							trigger="click"
-							delay={0}
-							transitionDuration={0}
-							placement="end"
-							gutter={1}
-							style={{ backgroundColor: '#FFF9F0' }}
-							// className={classes.links}
-							control={
-								<a className={classes.link}>
-									<Center>
-										<span className={classes.linkLabel}>More</span>
-										<ChevronDown size={12} />
-									</Center>
-								</a>
-							}
-						>
-							<Link href={'/collection'}>
-								<Menu.Item className={classes.link}>
-									<a>Collection</a>
-								</Menu.Item>
-							</Link>
-							<Link href={'/leaderboard'}>
-								<Menu.Item className={classes.link}>
-									<a>Leaderboard</a>
-								</Menu.Item>
-							</Link>
-							<Link href={'/festival'}>
-								<Menu.Item className={classes.link}>
-									<a>Panthera Festival</a>
-								</Menu.Item>
-							</Link>
-							<Link href={'/banerator'}>
-								<Menu.Item className={classes.link}>
-									<a>Banerator</a>
-								</Menu.Item>
-							</Link>
-						</Menu>
-						<Link href={'/'}>
+						{/* <Link href={'/'}>
 							<Image src="/magic-eden.svg" alt="magic-eden" />
 						</Link>
 						<Link href={'/'}>
@@ -151,7 +110,7 @@ export function HeaderMenu() {
 						</Link>
 						<Link href={'/'}>
 							<Image src="/discord.svg" alt="discord" />
-						</Link>
+						</Link> */}
 					</Group>
 					<Burger opened={opened} onClick={() => toggleOpened()} size="sm" className={classes.burger} />
 					<Transition transition="pop-top-right" duration={200} mounted={opened}>
@@ -159,60 +118,17 @@ export function HeaderMenu() {
 							<Paper className={classes.dropdown} withBorder style={styles}>
 								<Link href={'/'}>
 									<a style={{ color: 'black' }} className={classes.link}>
-										Home
+										WL Marketplace
 									</a>
 								</Link>
-								<Link href={'/'}>
+								<Link href={'/Profile'}>
 									<a style={{ color: 'black' }} className={classes.link}>
-										Mint
+										Profile
 									</a>
 								</Link>
 								<Link href={'/roadmap'}>
 									<a style={{ color: 'black' }} className={classes.link}>
-										Roadmap
-									</a>
-								</Link>
-								<Link href={'/'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Team
-									</a>
-								</Link>
-								<Link href={'/collection'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Collection
-									</a>
-								</Link>
-								<Link href={'/leaderboard'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Leaderboard
-									</a>
-								</Link>
-								<Link href={'/festival'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Panthera Festival
-									</a>
-								</Link>
-								<Link href={'/banerator'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Banerator
-									</a>
-								</Link>
-								<Link href={'/'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Twitter
-										<Image src="twitter.svg" alt="twitter" width={20} style={{ float: 'right' }} />
-									</a>
-								</Link>
-								<Link href={'/'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Discord
-										<Image src="discord.svg" alt="discord" width={20} style={{ float: 'right' }} />
-									</a>
-								</Link>
-								<Link href={'/'}>
-									<a style={{ color: 'black' }} className={classes.link}>
-										Magic Eden
-										<Image src="magic-eden.svg" alt="magic-eden" width={20} style={{ float: 'right' }} />
+										Sign Out
 									</a>
 								</Link>
 							</Paper>
